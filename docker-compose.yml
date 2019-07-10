@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres:11.4
+    container_name: postgres
+    volumes:
+      - /tmp/postgres_data_python:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: twoflower
+      POSTGRES_DB: ank
+      POSTGRES_PASSWORD: mork 
+    networks:
+      - database
+networks:
+  database:
+    driver: bridge
